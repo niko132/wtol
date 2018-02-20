@@ -38,19 +38,10 @@
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4) {
-					document.getElementById("text").innerHTML += "Its ready! " + this.status + "\n";
-				
 					if (this.status == 200) {
-						document.getElementById("text").innerHTML += "<br>BEFORE<br>";
-					
-						var obj = JSON.parse(this.responseText);
-						
-						document.getElementById("text").innerHTML += "<br>AFTER<br>";
-						
+						var obj = JSON.parse(this.responseText);						
 						var games = obj.games.games;
 						var gamesLength = games.length;
-						
-						document.getElementById("text").innerHTML += "<br>GAMES: " + gamesLength + "<br>";
 			
 						gameCount += gamesLength;
 			
@@ -72,8 +63,6 @@
 					} else if (this.status == 429) {
 						setTimeout(loadGameIndex(gameIndex), 50);
 					}
-				} else {
-					document.getElementById("text").innerHTML += "ReadyState" + this.readyState + "\n";
 				}
 			}
 
