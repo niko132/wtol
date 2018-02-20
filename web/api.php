@@ -6,9 +6,11 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	// $output contains the output string 
 	$output = curl_exec($ch); 
-	// close curl resource to free up system resources 
+	// close curl resource to free up system resources
+	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	curl_close($ch);
 	
 	echo $output;
+	echo $httpcode;
 	echo $_POST["test"];
 ?>
