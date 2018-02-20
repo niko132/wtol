@@ -10,4 +10,5 @@
 	curl_close($ch);
 	
 	echo $output;
+	echo $_POST["test"];
 ?>
