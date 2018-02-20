@@ -16,9 +16,6 @@
 			$gameIndexInt = (int) $gameIndex;
 			$gameEndIndex = $gameIndexInt + 20;
 			
-			echo $gameIndexInt . "\n";
-			echo $gameEndIndex . "\n";
-		
 			$ch = curl_init(); 
 			$url = "https://acs.leagueoflegends.com/v1/stats/player_history/EUW1/" . $accountId . "?begIndex=" . $gameIndexInt . "&endIndex=" . $gameEndIndex;			
 			curl_setopt($ch, CURLOPT_URL, $url); 
