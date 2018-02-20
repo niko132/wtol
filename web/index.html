@@ -68,10 +68,11 @@ function loadGameIndex(gameIndex) {
 	}
   }
 
-  var url = "https://acs.leagueoflegends.com/v1/stats/player_history/EUW1/" + accountId + "?begIndex=" + gameIndex.toString() + "&endIndex=" + (gameIndex + 20).toString();
-
-  xhttp.open("GET", url, true);
-  xhttp.send();
+  var params = "accountId=" + accountId + "&gameIndex=" + gameIndex;
+  var url = "api.php";
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(params);
 }
 
 function displayTime() {
