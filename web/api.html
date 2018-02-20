@@ -7,6 +7,11 @@
 				if (this.readyState == 4) {
 					if (this.status == 200) {
 						document.getElementById("text").innerHTML = this.responseText;
+						
+						var obj = JSON.parse(this.responseText);
+						var accountId = obj.accountId;
+						
+						loadData(accountId);
 					} else {
 						document.getElementById("text").innerHTML = "Fail " + this.status;
 					}
@@ -16,6 +21,26 @@
 			var params = "summoner=" + "nikock";
 			var url = "api.php";
 			xhttp.open("POST", url, true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send(params);
+		}
+		
+		function loadData(accountId) {
+			var xhttp = new XMLHttpRequest();  
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4) {
+					if (this.status == 200) {
+						document.getElementById("text").innerHTML = this.responseText;
+					} else {
+						document.getElementById("text").innerHTML = "Fail " + this.status;
+					}
+				}
+			}
+  
+			var params = "accountId=" + accountId + "&gameIndex=0";
+			var url = "api.php";
+			xhttp.open("POST", url, true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhttp.send(params);
 		}
 		</script>
