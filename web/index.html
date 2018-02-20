@@ -19,7 +19,7 @@
 					if (this.status == 200) {
 						var obj = JSON.parse(this.responseText);
 						accountId = obj.accountId;
-						document.getElementById("text").innerHTML = accountId + "<br>;
+						document.getElementById("text").innerHTML = accountId + "<br>";
 						loadGameIndex(0);
 					} else {
 						document.getElementById("text").innerHTML = "Error: " + this.status;
