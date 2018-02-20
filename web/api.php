@@ -1,5 +1,5 @@
 <?php
-	if (!empty($_POST["summonerName"])) {
+	if (isset($_POST["summonerName"]) && !empty($_POST["summonerName"])) {
 		$summonerName = $_POST["summonerName"];
 		$ch = curl_init(); 
 		// set url 
@@ -8,7 +8,7 @@
 		$output = curl_exec($ch);
 		curl_close($ch);
 		echo $output;
-	} else if (!empty($_POST["accountId"]) && !empty($_POST["gameIndex"])) {
+	} else if (isset($_POST["accountId"]) && !empty($_POST["accountId"]) && isset($_POST["gameIndex"]) && !empty($_POST["gameIndex"])) {
 		echo "Retrieving game data...\n";
 		
 		$accountId = $_POST["accountId"];		
@@ -22,6 +22,10 @@
 		
 			$ch = curl_init(); 
 			$url = "https://acs.leagueoflegends.com/v1/stats/player_history/EUW1/" . $accountId . "?begIndex=" . $gameIndexInt . "&endIndex=" . $gameEndIndex;
+			
+			echo "url: \n";
+			echo $url . "\n";
+			
 			curl_setopt($ch, CURLOPT_URL, $url); 
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			$output = curl_exec($ch);
@@ -36,6 +40,6 @@
 	}
 	
 	echo "Hello World!\n";
-	echo $_POST["accountId"];
-	echo $_POST["gameIndex"];
+	echo $_POST["accountId"] . "\n";
+	echo $_POST["gameIndex"] . "\n";
 ?>
