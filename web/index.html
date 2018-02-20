@@ -29,10 +29,10 @@ function getIdForSummonerName(summoner_name) {
 	}
   }
   
-  var url = "https://euw1.api.riotgames.com/lol/summoner/v3/summoners/by-name/" + summoner_name + "?api_key=" + API_KEY;
-  
-  xhttp.open("GET", url, true);
-  xhttp.send();
+  var params = "summoner=" + summoner_name;
+  var url = "api.php";
+  xhttp.open("POST", url, true);
+  xhttp.send(params);
 }
 
 function loadGameIndex(gameIndex) {
