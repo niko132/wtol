@@ -9,7 +9,11 @@
 		curl_close($ch);
 		echo $output;
 	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"])) {
-		http_response_code(201)
+		$sapi_type = php_sapi_name();
+		if (substr($sapi_type, 0, 3) == 'cgi')
+			header("Status: 123 Not Found");
+		else
+			header("HTTP/1.1 123 Not Found");
 		
 		$accountId = $_POST["accountId"];		
 		$gameIndex = $_POST["gameIndex"];
