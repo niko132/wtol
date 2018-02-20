@@ -8,9 +8,7 @@
 		$output = curl_exec($ch);
 		curl_close($ch);
 		echo $output;
-	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"])) {
-		http_response_code(404);
-		
+	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"])) {		
 		$accountId = $_POST["accountId"];		
 		$gameIndex = $_POST["gameIndex"];
 		
@@ -26,8 +24,14 @@
 			curl_setopt($ch, CURLOPT_URL, $url); 
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			$output = curl_exec($ch);
+			$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close($ch);
-			echo $output;
+			
+			if ($httpcode == 200) {
+				echo $output;
+			} else {
+				http_response_code($httpcode);
+			}
 		} else {
 			echo "gameIndex is no valid int";
 		}
