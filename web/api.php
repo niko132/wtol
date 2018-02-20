@@ -34,4 +34,8 @@
 			echo "gameIndex is no valid int";
 		}
 	}
+	
+	echo "Hello World!\n";
+	echo $_POST["accountId"];
+	echo $_POST["gameIndex"];
 ?>
