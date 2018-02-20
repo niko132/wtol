@@ -9,10 +9,14 @@
 		curl_close($ch);
 		echo $output;
 	} else if (!empty($_POST["accountId"]) && !empty($_POST["gameIndex"])) {
+		echo "Retrieving game data...\n";
+		
 		$accountId = $_POST["accountId"];		
 		$gameIndex = $_POST["gameIndex"];
 		
 		if (is_numeric($gameIndex)) {
+			echo "nummeric check (y)\n";
+			
 			$gameIndexInt = (int) $gameIndex;
 			$gameEndIndex = gameIndexInt + 20;
 		
@@ -21,8 +25,11 @@
 			curl_setopt($ch, CURLOPT_URL, $url); 
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			$output = curl_exec($ch);
+			$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 			curl_close($ch);
 			echo $output;
+			
+			echo "now returning... " . $httpcode . "\n";
 		} else {
 			echo "gameIndex is no valid int";
 		}
