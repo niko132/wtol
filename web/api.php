@@ -1,5 +1,5 @@
 <?php
-	if (isset($_POST["summonerName"]))) {
+	if (isset($_POST["summonerName"])) {
 		$summonerName = $_POST["summonerName"];
 		$ch = curl_init(); 
 		// set url 
@@ -8,7 +8,7 @@
 		$output = curl_exec($ch);
 		curl_close($ch);
 		echo $output;
-	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"]))) {
+	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"])) {
 		echo "Retrieving game data...\n";
 		
 		$accountId = $_POST["accountId"];		
