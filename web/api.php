@@ -8,7 +8,9 @@
 		$output = curl_exec($ch);
 		curl_close($ch);
 		echo $output;
-	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"])) {		
+	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"])) {
+		http_response_code(201)
+		
 		$accountId = $_POST["accountId"];		
 		$gameIndex = $_POST["gameIndex"];
 		
