@@ -14,8 +14,7 @@
 		
 		if (is_numeric($gameIndex)) {			
 			$gameIndexInt = (int) $gameIndex;
-			$gameEndIndex = gameIndexInt;
-			$gameEndIndex += 20;
+			$gameEndIndex = $gameIndexInt + 20;
 			
 			echo $gameIndexInt . "\n";
 			echo $gameEndIndex . "\n";
