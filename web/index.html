@@ -19,7 +19,7 @@
 					if (this.status == 200) {
 						var obj = JSON.parse(this.responseText);
 						accountId = obj.accountId;
-						document.getElementById("text").innerHTML = accountId;
+						document.getElementById("text").innerHTML = accountId + "<br>;
 						loadGameIndex(0);
 					} else {
 						document.getElementById("text").innerHTML = "Error: " + this.status;
@@ -87,7 +87,7 @@
 
 			var seconds = delta % 60;
   
-			document.getElementById("text").innerHTML = days.toString() + " Days<br>" + hours.toString() + " Hours<br>" + minutes.toString() + " Minutes<br>" + seconds.toString() + " Seconds";
+			document.getElementById("text").innerHTML += "<br>" + days.toString() + " Days<br>" + hours.toString() + " Hours<br>" + minutes.toString() + " Minutes<br>" + seconds.toString() + " Seconds";
 		}
 		</script>
 	</head>
