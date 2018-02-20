@@ -11,9 +11,9 @@
 	} else if (isset($_POST["accountId"]) && isset($_POST["gameIndex"])) {
 		$sapi_type = php_sapi_name();
 		if (substr($sapi_type, 0, 3) == 'cgi')
-			header("Status: 123 Not Found");
+			header("Status: 404 Not Found");
 		else
-			header("HTTP/1.1 123 Not Found");
+			header("HTTP/1.1 404 Not Found");
 		
 		$accountId = $_POST["accountId"];		
 		$gameIndex = $_POST["gameIndex"];
