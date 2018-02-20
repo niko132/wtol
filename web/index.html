@@ -17,21 +17,24 @@ function loadDoc() {
 function getIdForSummonerName(summoner_name) {
   var xhttp = new XMLHttpRequest();  
   xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var obj = JSON.parse(this.responseText);
-	  accountId = obj.accountId;
+    if (this.readyState == 4) {
+	  if (this.status == 200) {
+        var obj = JSON.parse(this.responseText);
+	    accountId = obj.accountId;
 	  
-	  document.getElementById("text").innerHTML = accountId;
+	    document.getElementById("text").innerHTML = accountId;
 	  
-	  loadGameIndex(0);
-	} else {
-	  document.getElementById("text").innerHTML = "Test";
-	}
+	    loadGameIndex(0);
+	  } else {
+	    document.getElementById("text").innerHTML = "Error: " + this.status;
+	  }
+    }
   }
   
   var params = "summoner=" + summoner_name;
   var url = "api.php";
   xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send(params);
 }
 
