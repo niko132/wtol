@@ -41,9 +41,16 @@
 					document.getElementById("text").innerHTML += "Its ready! " + this.status + "\n";
 				
 					if (this.status == 200) {
+						document.getElementById("text").innerHTML += "<br>BEFORE<br>";
+					
 						var obj = JSON.parse(this.responseText);
+						
+						document.getElementById("text").innerHTML += "<br>AFTER<br>";
+						
 						var games = obj.games.games;
 						var gamesLength = games.length;
+						
+						document.getElementById("text").innerHTML += "<br>GAMES: " + gamesLength + "<br>";
 			
 						gameCount += gamesLength;
 			
