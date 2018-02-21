@@ -32,7 +32,7 @@
 		} else {
 			echo "gameIndex is no valid int";
 		}
-	} else if (isset$_POST["test"]) {
+	} else if (isset($_POST["test"])) {
 		echo "test";
 		$db = pg_connect("host=ec2-54-247-95-125.eu-west-1.compute.amazonaws.com port=5432 dbname=d6ekuvikv3vj2u user=nsepsdirjogngr password=e9717b306d08ce71e6971bc0a987dc49163401e51ec9f70eb25c6d84c72c15a2") or die('Could not connect: ' . pg_last_error());
 		$result = pg_query("INSERT INTO test (test1) VALUES (400)") or die('Query failed: ' . pg_last_error());
