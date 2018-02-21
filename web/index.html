@@ -7,6 +7,10 @@
 		var gameDuration = 0;
 
 		function loadDoc() {
+			accountId = "";
+			gameCount = 0;
+			gameDuration = 0;
+		
 			var summoner_name = document.getElementById("summoner_name").value;
 			document.getElementById("text").innerHTML = summoner_name;
 			getIdForSummonerName(summoner_name);
