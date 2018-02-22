@@ -31,9 +31,9 @@
 				echo "fetched games";
 				
 				$jsonGames = json_decode($games);
-				$gamesArray = jsonGames->games->games;
 				
 				/*
+				$gamesArray = jsonGames->games->games;
 				$fetchedGames = count($gamesArray);
 				
 				echo $fetchedGames;
