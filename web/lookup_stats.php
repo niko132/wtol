@@ -35,6 +35,9 @@
 				$gamesArray = $jsonGames->games->games;
 				$fetchedGames = count($gamesArray);
 				
+				echo $gamesArray;
+				
+				/*
 				echo $fetchedGames;
 				
 				for ($i = 0; i < $fetchedGames; $i++) {
@@ -42,6 +45,7 @@
 				}
 				
 				$gameIndex += $fetchedGames;
+				*/
 			}
 			
 			$fetchedGames = 0;
