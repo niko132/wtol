@@ -42,6 +42,10 @@
 					echo $gamesArray[i]->gameDuration;
 					echo "\n";
 					
+					echo "\n";
+					echo $gamesArray[i];
+					echo "\n";
+					
 					$totalTime += $gamesArray[i]->gameDuration;
 				}
 				
