@@ -43,8 +43,6 @@
 				
 				$gameIndex += $fetchedGames;
 			}
-			
-			$fetchedGames = 0;
 		} while($fetchedGames >= 20);
 		
 		/*
