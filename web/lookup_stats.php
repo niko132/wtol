@@ -27,6 +27,8 @@
 		
 		$games = getGames($accountId, $gameIndex);
 		
+		echo $games;
+		
 		/*
 		do {
 			$games = getGames($accountId, $gameIndex);
