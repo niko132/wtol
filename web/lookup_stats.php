@@ -24,9 +24,10 @@
 		}
 		
 		$fetchedGames = 0;
-			
+		
+		/*
 		do {
-//			$games = getGames($accountId, $gameIndex);
+			$games = getGames($accountId, $gameIndex);
 			if ($games) {
 				echo "fetched games";
 				
@@ -59,6 +60,7 @@
 			$query = "INSERT INTO wtol VALUES (" . $accountId . ", " . $totalTime . ", '" . $summonerName . "', " . $lastGameIndex . ")";
 			$result = pg_query($query);
 		}
+		*/
 		
 		// Speicher freigeben
 		pg_free_result($result);
