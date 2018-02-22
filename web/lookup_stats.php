@@ -27,26 +27,32 @@
 			
 		do {
 			$games = getGames($accountId, $gameIndex);
-			if ($games) {
-				echo "fetched games";
-				
-				$jsonGames = json_decode($games);
-				$gamesArray = jsonGames->games->games;
-				$fetchedGames = count($gamesArray);
-				
-				echo $fetchedGames;
-				
-				for ($i = 0; i < $fetchedGames; $i++) {
-					$totalTime += $gamesArray[i]->gameDuration;
-				}
-				
-				$gameIndex += $fetchedGames;
-			}
+			
 			
 			$fetchedGames = 0;
 		} while($fetchedGames >= 20);
 		
+		$lastGameIndex = $gameIndex - 1;
 		
+		if ($count > 0) { // update existing
+			echo "updating";
+		
+			$query = "UPDATE wtol SET 'lastGameIndex'=" . $lastGameIndex . ", 'totalTime'=" . $totalTime . " WHERE 'accountId'=" . $accountId;
+			$result = pg_query($query);
+		} else { // insert new
+			echo "inserting"
+		
+			$query = "INSERT INTO wtol VALUES (" . $accountId . ", " . $totalTime . ", '" . $summonerName . "', " . $lastGameIndex . ")";
+			$result = pg_query($query);
+		}
+		
+		// Speicher freigeben
+		pg_free_result($result);
+		
+		// Verbindung schlieﬂen
+		pg_close($db);
+		
+		echo $totalTime;
 	}
 	
 	function getGames($accountId, $gameIndex) {
