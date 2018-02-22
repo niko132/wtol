@@ -39,7 +39,7 @@
 				
 				foreach($gamesArray as $item) {
 					echo "\n";
-					echo var_dump($item);
+					echo $item->gameDuration;
 					echo "\n";
 				}
 				
