@@ -38,6 +38,10 @@
 				echo $fetchedGames;
 				
 				for ($i = 0; $i < $fetchedGames; $i++) {
+					echo "Duration: ";
+					echo $gamesArray[i]->gameDuration;
+					echo "\n";
+					
 					$totalTime += $gamesArray[i]->gameDuration;
 				}
 				
