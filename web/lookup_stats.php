@@ -6,6 +6,8 @@
 		
 		$count = pg_num_rows($result);
 		
+		echo $count;
+		
 		$accountId = 0;
 		$gameIndex = 0;
 		$totalTime = 0;
@@ -26,9 +28,13 @@
 		do {
 			$games = getGames($accountId, $gameIndex);
 			if ($games) {
+				echo "fetched games";
+				
 				$jsonGames = json_decode($games);
 				$gamesArray = jsonGames->games->games;
 				$fetchedGames = count($gamesArray);
+				
+				echo $fetchedGames;
 				
 				for ($i = 0; i < $fetchedGames; $i++) {
 					$totalTime += $gamesArray[i]->gameDuration;
@@ -43,10 +49,14 @@
 		$lastGameIndex = $gameIndex - 1;
 		
 		if ($count > 0) { // update existing
-			$query = "INSERT INTO wtol VALUES (" . $accountId . ", " . $totalTime . ", '" . $summonerName . "', " . $lastGameIndex . ")";
+			echo "updating";
+		
+			$query = "UPDATE wtol SET 'lastGameIndex'=" . $lastGameIndex . ", 'totalTime'=" . $totalTime . " WHERE 'accountId'=" . $accountId;
 			$result = pg_query($query);
 		} else { // insert new
-			$query = "UPDATE wtol SET 'lastGameIndex'=" . $lastGameIndex . ", 'totalTime'=" . $totalTime . " WHERE 'accountId'=" . $accountId;
+			echo "inserting"
+		
+			$query = "INSERT INTO wtol VALUES (" . $accountId . ", " . $totalTime . ", '" . $summonerName . "', " . $lastGameIndex . ")";
 			$result = pg_query($query);
 		}
 		
