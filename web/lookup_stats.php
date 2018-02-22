@@ -35,7 +35,9 @@
 				$gamesArray = $jsonGames->games->games;
 				$fetchedGames = count($gamesArray);
 				
-				echo $gamesArray;
+				echo "length: ";
+				echo $fetchedGames;
+				echo " ";
 				
 				/*
 				echo $fetchedGames;
