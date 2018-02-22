@@ -6,8 +6,25 @@
 		
 		$count = pg_num_rows($result);
 		
-		echo $count;
-		echo "<br>";
-		echo "nice";
+		if ($count > 0) { // this summoner is already in the database
+			$row = pg_fetch_row($result);
+			$accountId = $row[0];
+			$gameCount = $row[1];
+			$summonerName = $row[2];
+			$totalTime = $row[3];
+			
+			echo $accountId;
+			echo $gameCount;
+			echo $summonerName;
+			echo $totalTime;
+		} else { // we have to get all the games now :/
+			
+		}
+		
+		// Speicher freigeben
+		pg_free_result($result);
+		
+		// Verbindung schließen
+		pg_close($db);
 	}
 ?>
