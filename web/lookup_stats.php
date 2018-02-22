@@ -38,9 +38,7 @@
 				echo $fetchedGames;
 				
 				foreach($gamesArray as $item) {
-					echo "\n";
-					echo $item->gameDuration;
-					echo "\n";
+					$totalTime += $item->gameDuration;
 				}
 				
 				$gameIndex += $fetchedGames;
@@ -73,6 +71,7 @@
 		// Verbindung schlieﬂen
 		pg_close($db);
 		
+		echo "\n";
 		echo $totalTime;
 	}
 	
