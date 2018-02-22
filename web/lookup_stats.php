@@ -35,19 +35,13 @@
 				$gamesArray = $jsonGames->games->games;
 				$fetchedGames = count($gamesArray);
 				
-				echo "length: ";
-				echo $fetchedGames;
-				echo " ";
-				
-				/*
 				echo $fetchedGames;
 				
-				for ($i = 0; i < $fetchedGames; $i++) {
+				for ($i = 0; $i < $fetchedGames; $i++) {
 					$totalTime += $gamesArray[i]->gameDuration;
 				}
 				
 				$gameIndex += $fetchedGames;
-				*/
 			}
 			
 			$fetchedGames = 0;
