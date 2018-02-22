@@ -25,11 +25,6 @@
 		
 		$fetchedGames = 0;
 		
-		$games = getGames($accountId, $gameIndex);
-		
-		echo $games;
-		
-		/*
 		do {
 			$games = getGames($accountId, $gameIndex);
 			if ($games) {
@@ -37,6 +32,8 @@
 				
 				$jsonGames = json_decode($games);
 				$gamesArray = jsonGames->games->games;
+				
+				/*
 				$fetchedGames = count($gamesArray);
 				
 				echo $fetchedGames;
@@ -46,6 +43,8 @@
 				}
 				
 				$gameIndex += $fetchedGames;
+				
+				*/
 			}
 			
 			$fetchedGames = 0;
@@ -64,7 +63,6 @@
 			$query = "INSERT INTO wtol VALUES (" . $accountId . ", " . $totalTime . ", '" . $summonerName . "', " . $lastGameIndex . ")";
 			$result = pg_query($query);
 		}
-		*/
 		
 		// Speicher freigeben
 		pg_free_result($result);
