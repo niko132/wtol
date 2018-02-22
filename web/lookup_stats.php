@@ -23,6 +23,29 @@
 			// TODO: get the accountId
 		}
 		
+		$fetchedGames = 0;
+			
+		do {
+			$games = getGames($accountId, $gameIndex);
+			if ($games) {
+				echo "fetched games";
+				
+				$jsonGames = json_decode($games);
+				$gamesArray = jsonGames->games->games;
+				$fetchedGames = count($gamesArray);
+				
+				echo $fetchedGames;
+				
+				for ($i = 0; i < $fetchedGames; $i++) {
+					$totalTime += $gamesArray[i]->gameDuration;
+				}
+				
+				$gameIndex += $fetchedGames;
+			}
+			
+			$fetchedGames = 0;
+		} while($fetchedGames >= 20);
+		
 		
 	}
 	
