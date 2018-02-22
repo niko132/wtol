@@ -8,6 +8,21 @@
 		
 		echo $count;
 		
+		$accountId = 0;
+		$gameIndex = 0;
+		$totalTime = 0;
+		
+		if ($count > 0) { // this summoner is already in the database
+			$row = pg_fetch_row($result);
+			$accountId = $row[0];
+			$totalTime = (int) $row[1];
+			$lastGameIndex = (int) $row[3];
+			
+			$gameIndex = $lastGameIndex + 1;
+		} else { // we have to get all the games now :/
+			// TODO: get the accountId
+		}
+		
 		
 	}
 	
