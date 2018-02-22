@@ -4,7 +4,11 @@
 		$summonerName = $_POST["summonerName"];
 		$result = pg_query("SELECT count(*) FROM wtol WHERE \"summonerName\" = '" . $summonerName . "'");
 		
-		echo $result;
+		while($row = pg_fetch_array($result)) {
+			echo $row;
+			echo "<br>";
+		}
+		
 		echo "nice";
 	}
 ?>
