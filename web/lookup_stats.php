@@ -48,6 +48,8 @@
 			*/
 		} while($fetchedGames >= 20);
 		
+		/*
+		
 		$lastGameIndex = $gameIndex - 1;
 		
 		if ($count > 0) { // update existing
@@ -61,6 +63,8 @@
 			$query = "INSERT INTO wtol VALUES (" . $accountId . ", " . $totalTime . ", '" . $summonerName . "', " . $lastGameIndex . ")";
 			$result = pg_query($query);
 		}
+		
+		*/
 		
 		// Speicher freigeben
 		pg_free_result($result);
