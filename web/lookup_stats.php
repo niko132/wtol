@@ -33,8 +33,6 @@
 				
 				$jsonGames = json_decode($games);
 				$gamesArray = $jsonGames->games->games;
-				
-				/*
 				$fetchedGames = count($gamesArray);
 				
 				echo $fetchedGames;
@@ -44,8 +42,8 @@
 				}
 				
 				$gameIndex += $fetchedGames;
-				*/
 			}
+			
 			$fetchedGames = 0;
 		} while($fetchedGames >= 20);
 		
