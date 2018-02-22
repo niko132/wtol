@@ -28,7 +28,6 @@
 		do {
 			$games = getGames($accountId, $gameIndex);
 			
-			/*
 			if ($games) {
 				echo "fetched games";
 				
@@ -45,7 +44,6 @@
 				$gameIndex += $fetchedGames;
 			}
 			$fetchedGames = 0;
-			*/
 		} while($fetchedGames >= 20);
 		
 		/*
